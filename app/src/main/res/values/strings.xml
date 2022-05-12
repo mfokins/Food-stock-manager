@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Food stock manager</string>
+    <string name="title_main">MainActivity</string>
+    <string name="title_addProduct">Add Product</string>
+    <string name="title_productDetails">Product Details</string>
+    <string name="title_foodVault">Food Vault</string>
+    <string name="title_recipes">Recipes</string>
+    <string name="title_activity_drawer_temp">activity_drawerTemp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">SaveEat Application</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="dairy">Dairy</string>
+    <string name="fruit">Fruit</string>
+    <string name="grains">Grains</string>
+    <string name="meat">Meat</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="junk_food">Junk Food</string>
+    <string name="other">Other</string>
+    <string name="product_name">Product name</string>
+    <string name="confirm">Confirm</string>
+    <string name="categoryImage">CategoryImage</string>
+    <string name="expiration_date">Expiration date</string>
+    <string name="try_landscape_view">Try landscape view!</string>
+    <string name="food_pyramid">Food Pyramid</string>
 </resources>

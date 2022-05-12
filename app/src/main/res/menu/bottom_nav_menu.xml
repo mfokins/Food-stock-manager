@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_products"
+        android:icon="@drawable/ic_food_24"
+        android:title="@string/title_foodVault" />
+
+    <item
+        android:id="@+id/navigation_foodcategories"
+        android:icon="@drawable/ic_add_product_24"
+        android:title="@string/title_addProduct" />
+
+
+    <!-- TODO implement recipes in the future -->
+<!--    <item-->
+<!--        android:id="@+id/navigation_recipes"-->
+<!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
+<!--        android:title="@string/title_recipes" />-->
+
+</menu>

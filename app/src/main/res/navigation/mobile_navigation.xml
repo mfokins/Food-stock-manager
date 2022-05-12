@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_products">
+
+    <fragment
+        android:id="@+id/navigation_products"
+        android:name="com.example.foodstockmanager.ui.products.ProductFragment"
+        android:label="@string/title_foodVault"
+        tools:layout="@layout/fragment_product" />
+
+    <fragment
+        android:id="@+id/navigation_foodcategories"
+        android:name="com.example.foodstockmanager.ui.foodcategories.FoodCategoriesFragment"
+        android:label="@string/title_addProduct"
+        tools:layout="@layout/fragment_foodcategories" />
+
+    <fragment
+        android:id="@+id/navigation_foodcreate"
+        android:name="com.example.foodstockmanager.ui.foodcreate.FoodCreateFragment"
+        android:label="@string/title_productDetails"
+        tools:layout="@layout/fragment_foodcreate" />
+
+    <fragment
+        android:id="@+id/navigation_recipes"
+        android:name="com.example.foodstockmanager.ui.recipes.RecipesFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipe" />
+
+
+    <fragment
+        android:id="@+id/nav_foodPyramid"
+        android:name="com.example.foodstockmanager.ui.foodpyramid.FoodPyramidFragment"
+        android:label="@string/food_pyramid"
+        tools:layout="@layout/fragment_foodpyramid" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.foodstockmanager.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
