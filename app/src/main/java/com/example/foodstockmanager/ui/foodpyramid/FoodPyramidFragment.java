@@ -17,14 +17,8 @@ public class FoodPyramidFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        FoodPyramidViewModel foodPyramidViewModel =
-                new ViewModelProvider(this).get(FoodPyramidViewModel.class);
-
         binding = FragmentFoodpyramidBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-//        final TextView textView = binding.textGallery;
-//        foodPyramidViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

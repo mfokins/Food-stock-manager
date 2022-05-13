@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_products,
-                R.id.navigation_foodcategories,
-                R.id.navigation_foodcreate,
-                R.id.navigation_recipes)
+                R.id.navigation_foodcategories)
                 .setOpenableLayout(drawerLayout)
                 .build();
 
@@ -64,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private void setBottomNavigationVisibility() {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             final int id = destination.getId();
-            if (id == R.id.navigation_products || id == R.id.navigation_recipes || id == R.id.navigation_foodcreate || id == R.id.navigation_foodcategories) {
+            if (id == R.id.navigation_products || id == R.id.navigation_foodcategories) {
                 bottomNavigationView.setVisibility(View.VISIBLE);
             } else {
                 bottomNavigationView.setVisibility(View.GONE);

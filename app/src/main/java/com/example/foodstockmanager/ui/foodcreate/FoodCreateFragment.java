@@ -1,5 +1,6 @@
 package com.example.foodstockmanager.ui.foodcreate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.foodstockmanager.R;
 import com.example.foodstockmanager.databinding.FragmentFoodcreateBinding;
 
 public class FoodCreateFragment extends Fragment {
 
     private FragmentFoodcreateBinding binding;
+    ImageView categoryImage;
+    TextView productName;
+    TextView expiryDate;
+    Button confirmButton;
+    public static final  String CATEGORY = "category";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -25,15 +32,37 @@ public class FoodCreateFragment extends Fragment {
 
         binding = FragmentFoodcreateBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        Bundle extras = getArguments();
 
-        ImageView categoryImage = binding.categoryImage;
-        TextView productName = binding.editProductName;
-        TextView expiryDate = binding.editTextDate;
-        Button confirmButton = binding.confirmProductButton;
+        initViews();
+        setPicture(extras);
 
-//        final TextView textView = binding.textFoodcreate;
-//        foodCreateViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
+    }
+
+    private void setPicture(Bundle extras) {
+        switch (extras.getString(CATEGORY))
+        {
+            case "dairy":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.dairy));
+                break;
+            case "fruit":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.fruit));
+                break;
+            case "meat":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.meat));
+                break;
+            case "grains":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.grains));
+                break;
+            case "vegetables":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.vegetables));
+                break;
+            case "junkfood":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.junkfood));
+                break;
+        }
+    }
+
+    private void initViews(){
+        categoryImage = binding.categoryImage;
+        productName = binding.editProductName;
+        expiryDate = binding.editTextDate;
+        confirmButton = binding.confirmProductButton;
     }
 
     @Override
