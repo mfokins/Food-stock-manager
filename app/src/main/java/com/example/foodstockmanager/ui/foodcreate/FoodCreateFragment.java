@@ -33,7 +33,6 @@ public class FoodCreateFragment extends Fragment {
         binding = FragmentFoodcreateBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         Bundle extras = getArguments();
-
         initViews();
         setPicture(extras);
 
@@ -41,21 +40,7 @@ public class FoodCreateFragment extends Fragment {
     }
 
     private void setPicture(Bundle extras) {
-        switch (extras.getString(CATEGORY))
-        {
-            case "dairy":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.dairy));
-                break;
-            case "fruit":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.fruit));
-                break;
-            case "meat":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.meat));
-                break;
-            case "grains":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.grains));
-                break;
-            case "vegetables":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.vegetables));
-                break;
-            case "junkfood":  categoryImage.setImageDrawable(getResources().getDrawable(R.drawable.junkfood));
-                break;
-        }
+        categoryImage.setImageDrawable(getResources().getDrawable(getResources().getIdentifier(extras.getString(CATEGORY), "drawable", getContext().getPackageName())));
     }
 
     private void initViews(){
