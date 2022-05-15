@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:src="@drawable/other"
         android:contentDescription="@string/item_icon"
-        android:layout_gravity="center"/>
+        android:layout_gravity="left"/>
 
     <TableLayout
         android:layout_width="wrap_content"

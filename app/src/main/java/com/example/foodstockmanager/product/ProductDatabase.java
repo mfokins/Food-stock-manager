@@ -19,6 +19,7 @@ public abstract class ProductDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                             ProductDatabase.class, "product_database")
                     .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()  //need this one to use queries from recycler view
                     .build();
         }
         return instance;

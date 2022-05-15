@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.foodstockmanager.R;
 import com.example.foodstockmanager.product.Product;
+import com.example.foodstockmanager.product.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class ProductFragment extends Fragment {
     private MyProductRecyclerViewAdapter myProductRecyclerViewAdapter;
     RecyclerView productList;
 
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,11 +45,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onChanged(List<Product> products) {
                 ArrayList<Product> temp = new ArrayList<>(products);
-                myProductRecyclerViewAdapter = new MyProductRecyclerViewAdapter(getContext(), temp);
+                myProductRecyclerViewAdapter = new MyProductRecyclerViewAdapter(getContext(), productViewModel, temp);
                 productList.setAdapter(myProductRecyclerViewAdapter);
-                myProductRecyclerViewAdapter.setOnClickListener(product -> {
-                    Toast.makeText(getContext(), ""+product.getId(), Toast.LENGTH_SHORT).show();
-                });
             }
         });
 

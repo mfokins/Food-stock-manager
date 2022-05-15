@@ -26,6 +26,7 @@ public class ProductViewModel extends AndroidViewModel {
         repository.deleteAllProducts();
     }
 
+    //Could also be done with id method
     public void delete(Product product) {
         repository.delete(product);
     }

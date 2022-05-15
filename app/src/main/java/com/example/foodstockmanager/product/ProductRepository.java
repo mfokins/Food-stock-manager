@@ -46,6 +46,11 @@ public class ProductRepository {
         productDAO.delete(product);
     }
 
+    //alternative to delete by ID
+    public void deleteById(int id) {
+        productDAO.deleteById(id);
+    }
+
 
     public void deleteAllProducts() {
         productDAO.deleteAllProducts();
