@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,17 +16,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.foodstockmanager.R;
-import com.example.foodstockmanager.ui.products.placeholder.PlaceholderContent;
+import com.example.foodstockmanager.product.Product;
 
-/**
- * A fragment representing a product_list of Items.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private ProductViewModel productViewModel;
+    private ArrayList<Product> products;
+    private MyProductRecyclerViewAdapter myProductRecyclerViewAdapter;
+    RecyclerView productList;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -31,6 +39,7 @@ public class ProductFragment extends Fragment {
      */
     public ProductFragment() {
     }
+
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
@@ -55,18 +64,24 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_products_list, container, false);
+        productViewModel = new ViewModelProvider(this).get(ProductViewModel.class);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+        productList = view.findViewById(R.id.product_list);
+        productList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+//        LiveData<List<Product>> temp = productViewModel.getAllProducts();
+//        products = productViewModel.getAllProducts().getValue();
+        productViewModel.getAllProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
+            @Override
+            public void onChanged(List<Product> products) {
+                ArrayList<Product> temp = new ArrayList<>(products);
+                myProductRecyclerViewAdapter = new MyProductRecyclerViewAdapter(temp);
+                productList.setAdapter(myProductRecyclerViewAdapter);
             }
-            recyclerView.setAdapter(new MyProductRecyclerViewAdapter(PlaceholderContent.ITEMS));
-        }
+        });
+
+
         return view;
     }
 }

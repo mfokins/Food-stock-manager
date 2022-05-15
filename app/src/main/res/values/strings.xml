@@ -26,4 +26,6 @@
     <string name="expiration_date">Expiration date</string>
     <string name="try_landscape_view">Try landscape view!</string>
     <string name="food_pyramid">Food Pyramid</string>
+    <string name="item_icon">Item Icon</string>
+    <string name="find_recipes">Find Recipes</string>
 </resources>

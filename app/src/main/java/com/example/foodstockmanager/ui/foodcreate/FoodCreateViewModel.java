@@ -1,19 +1,26 @@
 package com.example.foodstockmanager.ui.foodcreate;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class FoodCreateViewModel extends ViewModel {
+import com.example.foodstockmanager.product.Product;
+import com.example.foodstockmanager.product.ProductRepository;
 
-    private final MutableLiveData<String> mText;
+import java.util.List;
 
-    public FoodCreateViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is foodcreate fragment");
+public class FoodCreateViewModel extends AndroidViewModel {
+    private ProductRepository repository;
+
+    public FoodCreateViewModel(Application application) {
+        super(application);
+        repository = ProductRepository.getInstance(application);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void addProduct(Product product) {
+        repository.addProduct(product);
     }
+
 }
