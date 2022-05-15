@@ -2,17 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
     <ImageView
         android:id="@+id/product_icon"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:src="@drawable/other"
         android:contentDescription="@string/item_icon"
-        android:layout_gravity="left"/>
+        android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c0c0c0"/>
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -35,6 +45,11 @@
         android:textStyle="bold"
         android:layout_gravity="center"/>
 
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#c0c0c0"/>
+
     <TextView
         android:id="@+id/product_name"
         android:layout_width="wrap_content"
@@ -46,6 +61,11 @@
 
 </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"/>
+
     <TextView
         android:id="@+id/content"
         android:layout_width="wrap_content"
@@ -55,6 +75,11 @@
         android:layout_gravity="center"/>
 
 </TableLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c0c0c0"/>
 
 <!--    <ImageButton-->
 <!--        android:id="@+id/findRecipesButton"-->
@@ -71,8 +96,18 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:src="@drawable/ic_remove_24"
-        android:contentDescription="@string/find_recipes"
+        android:contentDescription="@string/delete"
         android:layout_margin="8dp"
         android:layout_gravity="center"/>
 
+
 </LinearLayout>
+<!--  drawing a line after each element  -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0"/>
+
+    </LinearLayout>
+
+

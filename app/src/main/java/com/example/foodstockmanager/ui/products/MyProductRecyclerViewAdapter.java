@@ -45,10 +45,10 @@ public class MyProductRecyclerViewAdapter extends RecyclerView.Adapter<MyProduct
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        holder.mIdView.setText(products.get(position).getId()+":");
+        holder.mIdView.setText(position+1+":");
         holder.mImageView.setImageDrawable(context.getDrawable(context.getResources().getIdentifier(products.get(position).getType(), "drawable", context.getPackageName())));
         holder.mNameView.setText(products.get(position).getName());
-        holder.mContentView.setText("Expiry: "+(new SimpleDateFormat("dd-MM-yyyy").format((products.get(position).getExpiryDate()))));
+        holder.mContentView.setText("Expires: "+(new SimpleDateFormat("dd-MM-yyyy").format((products.get(position).getExpiryDate()))));
         holder.mRemoveButton.setOnClickListener(product ->{
             productViewModel.delete(products.get(position));
         });
