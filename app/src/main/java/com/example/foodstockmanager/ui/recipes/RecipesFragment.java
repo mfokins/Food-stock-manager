@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.foodstockmanager.R;
 import com.example.foodstockmanager.recipe.Recipe;
@@ -36,20 +37,25 @@ public class RecipesFragment extends Fragment {
 
         Bundle extras = getArguments();
 
-        recipesViewModel.searchForRecipes(extras.getString(INGREDIENT));
-
+        try {
+            recipesViewModel.searchForRecipes(extras.getString(INGREDIENT));
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "No recipes found", Toast.LENGTH_SHORT).show();
+        }
         recipeList = view.findViewById(R.id.recipes_list);
         recipeList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recipesViewModel.getSearchedRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
-            @Override
-            public void onChanged(List<Recipe> recipes) {
-                ArrayList<Recipe> temp = new ArrayList<>(recipes);
-                myRecipesRecyclerViewAdapter = new MyRecipesRecyclerViewAdapter(temp);
-                recipeList.setAdapter(myRecipesRecyclerViewAdapter);
-            }
-        });
-
+        
+            recipesViewModel.getSearchedRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
+                @Override
+                public void onChanged(List<Recipe> recipes) {
+                    if (recipes != null) {
+                        ArrayList<Recipe> temp = new ArrayList<>(recipes);
+                        myRecipesRecyclerViewAdapter = new MyRecipesRecyclerViewAdapter(temp);
+                        recipeList.setAdapter(myRecipesRecyclerViewAdapter);
+                    } else  Toast.makeText(getContext(), "Sorry, no recipes found", Toast.LENGTH_SHORT).show();
+                }
+            });
         return view;
     }
 }
