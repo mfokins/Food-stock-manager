@@ -2,6 +2,8 @@
  Android application should allow user to digitally maintain the one’s food stock, by adding/removing products (possibly with opportunity to assign expiry dates) stored in my household or my fridge, while system would be able to process the data to suggest recipes and send notifications in case of products being spoiled.
  
  Personal motivation behind this is related to the common need and passion for food as well as an opportunity to maintain the products list right on the device, which can be handful during shopping, especially if you forgot what you have home. Moreover, sometimes everyone may feel lazy enough to check on expiry dates on regular basis or to decide by themselves/lookup for something they can cook with what they have, so this might be a solution for it.
+ 
+Video presentation can be accessed by this link: https://youtu.be/PijNBrDnR-A
 
 
 | Nr. | Requirement | Done |
