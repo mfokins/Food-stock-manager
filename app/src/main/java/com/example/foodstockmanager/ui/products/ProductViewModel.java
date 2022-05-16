@@ -22,6 +22,14 @@ public class ProductViewModel extends AndroidViewModel {
         return repository.getAllProducts();
     }
 
+    public LiveData<List<Product>> getAllProductsByExpiryDate() {
+        return repository.getAllProductsByExpiryDate();
+    }
+
+    public LiveData<List<Product>> getAllProductsByType() {
+        return repository.getAllProductsByType();
+    }
+
     public void deleteAllProducts() {
         repository.deleteAllProducts();
     }

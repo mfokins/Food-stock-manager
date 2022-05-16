@@ -38,12 +38,20 @@ public class ProductRepository {
         return allProducts;
     }
 
+    public LiveData<List<Product>> getAllProductsByExpiryDate() {
+        return productDAO.getAllProductsByExpiryDate();
+    }
+
+    public LiveData<List<Product>> getAllProductsByType() {
+        return productDAO.getAllProductsByType();
+    }
+
     public void addProduct(Product product) {
         executorService.execute(() -> productDAO.addProduct(product));
     }
 
     public void delete(Product product) {
-        productDAO.delete(product);
+        executorService.execute(() -> productDAO.delete(product));
     }
 
     //alternative to delete by ID

@@ -31,4 +31,8 @@
     <string name="delete">Delete</string>
     <string name="lookup">Lookup</string>
     <string name="here_can_be_recipe_description">Here can be recipe description</string>
+    <string name="filter_by">Filter by:</string>
+    <string name="added">Added</string>
+    <string name="expiry">Expiry</string>
+    <string name="type">Type</string>
 </resources>

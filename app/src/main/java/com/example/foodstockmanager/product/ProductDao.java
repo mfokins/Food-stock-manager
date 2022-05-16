@@ -30,7 +30,7 @@ public interface ProductDao {
         @Query("SELECT * FROM product_table ORDER BY id ASC")
         LiveData<List<Product>> getAllProducts();
 
-        @Query("SELECT * FROM product_table ORDER BY expiryDate DESC")
+        @Query("SELECT * FROM product_table ORDER BY expiryDate ASC")
         LiveData<List<Product>> getAllProductsByExpiryDate();
 
         @Query("SELECT * FROM product_table ORDER BY type DESC")
