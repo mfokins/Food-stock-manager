@@ -2,60 +2,61 @@ package com.example.foodstockmanager.ui.recipes;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodstockmanager.databinding.FragmentRecipeBinding;
-import com.example.foodstockmanager.ui.recipes.placeholder.PlaceholderContent.PlaceholderItem;
+import com.example.foodstockmanager.recipe.Recipe;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyRecipesRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipesRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PlaceholderItem> mValues;
+    private final List<Recipe> recipes;
 
-    public MyRecipesRecyclerViewAdapter(List<PlaceholderItem> items) {
-        mValues = items;
+    public MyRecipesRecyclerViewAdapter(List<Recipe> items) {
+        recipes = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         return new ViewHolder(FragmentRecipeBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
-
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.recipePositionView.setText(position + 1 + ":");
+        holder.recipeNameView.setText(recipes.get(position).getName());
+        Glide.with(holder.recipeImageView.getContext()).load(recipes.get(position).getImageUrl()).into(holder.recipeImageView);
+//        holder.lookupButton.setOnClickListener(product ->{
+//            Bundle temp = new Bundle();
+//            temp.putString("Recipe", recipes.get(position).getName());
+//            navController.navigate(R.id.navigation_recipes, temp);  //need to create new fragment for individual recipes
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return recipes.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public PlaceholderItem mItem;
+        public final TextView recipePositionView;
+        public ImageView recipeImageView;
+        public final TextView recipeNameView;
+        public final ImageButton lookupButton;
 
         public ViewHolder(FragmentRecipeBinding binding) {
             super(binding.getRoot());
-            mIdView = binding.recipeNumber;
-            mContentView = binding.content;
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            recipePositionView = binding.recipeNumber;
+            recipeImageView = binding.recipeIcon;
+            recipeNameView = binding.recipeName;
+            lookupButton = binding.lookupRecipeButton;
         }
     }
 }

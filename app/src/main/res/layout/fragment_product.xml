@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         android:layout_gravity="center">
 
@@ -17,7 +17,9 @@
         android:layout_weight="1"
         android:src="@drawable/other"
         android:contentDescription="@string/item_icon"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"/>
 
         <View
             android:layout_width="1dp"
@@ -40,7 +42,7 @@
         android:id="@+id/product_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_margin="4dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"/>
@@ -81,14 +83,20 @@
             android:layout_height="match_parent"
             android:background="#c0c0c0"/>
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/findRecipesButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1"-->
-<!--        android:src="@drawable/ic_research_24"-->
-<!--        android:contentDescription="@string/find_recipes"-->
-<!--        android:layout_margin="16dp"/>-->
+    <ImageButton
+        android:id="@+id/findRecipesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_research_24"
+        android:contentDescription="@string/find_recipes"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#c0c0c0"/>
 
     <ImageButton
         android:id="@+id/removeProductButton"

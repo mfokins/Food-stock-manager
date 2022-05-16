@@ -6,8 +6,8 @@
     android:name="com.example.foodstockmanager.RecipesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.recipes.RecipesFragment"
     tools:listitem="@layout/fragment_recipe" />
