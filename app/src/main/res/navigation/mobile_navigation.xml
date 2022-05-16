@@ -25,9 +25,15 @@
 
     <fragment
         android:id="@+id/navigation_recipes"
-        android:name="com.example.foodstockmanager.ui.recipes.RecipesFragment"
+        android:name="com.example.foodstockmanager.ui.recipeList.RecipesFragment"
         android:label="@string/title_recipes"
         tools:layout="@layout/fragment_recipe" />
+
+    <fragment
+        android:id="@+id/navigation_recipe_details"
+        android:name="com.example.foodstockmanager.ui.recipeDetails.RecipeDetailsFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipe_details" />
 
 
     <fragment

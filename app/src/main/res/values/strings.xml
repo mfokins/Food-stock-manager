@@ -30,4 +30,5 @@
     <string name="find_recipes">Find Recipes</string>
     <string name="delete">Delete</string>
     <string name="lookup">Lookup</string>
+    <string name="here_can_be_recipe_description">Here can be recipe description</string>
 </resources>

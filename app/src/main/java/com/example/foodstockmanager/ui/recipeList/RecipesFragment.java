@@ -1,4 +1,4 @@
-package com.example.foodstockmanager.ui.recipes;
+package com.example.foodstockmanager.ui.recipeList;
 
 import android.os.Bundle;
 
@@ -45,7 +45,7 @@ public class RecipesFragment extends Fragment {
         recipeList = view.findViewById(R.id.recipes_list);
         recipeList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        
+
             recipesViewModel.getSearchedRecipes().observe(getViewLifecycleOwner(), new Observer<List<Recipe>>() {
                 @Override
                 public void onChanged(List<Recipe> recipes) {

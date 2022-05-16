@@ -1,18 +1,15 @@
-package com.example.foodstockmanager.ui.recipes;
+package com.example.foodstockmanager.ui.recipeDetails;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.foodstockmanager.recipe.Recipe;
 import com.example.foodstockmanager.recipe.RecipeRepository;
 
-import java.util.ArrayList;
-
-public class RecipesViewModel extends ViewModel {
+public class RecipeDetailsViewModel extends ViewModel {
     RecipeRepository repository;
 
-    public RecipesViewModel() {
+    public RecipeDetailsViewModel() {
         repository = RecipeRepository.getInstance();
     }
 
@@ -20,14 +17,8 @@ public class RecipesViewModel extends ViewModel {
         return repository.getLookedUpRecipe();
     }
 
-    LiveData<ArrayList<Recipe>> getSearchedRecipes() {
-        return repository.getSearchedRecipes();
-    }
 
     public void lookForRecipe(String name) { repository.lookupRecipe(name);
     }
 
-    public void searchForRecipes(String ingredient) {
-        repository.searchForRecipes(ingredient);
-    }
 }
